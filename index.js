@@ -8,6 +8,10 @@ var MockTransport = function(options) {
 };
 
 MockTransport.prototype.send = function(mail, callback) {
+  if (!mail.data.to) {
+    return callback(new Error('I need to know who this email is being sent to :-('));
+  }
+
   this.sentMail.push(mail);
   return callback();
 };
