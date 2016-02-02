@@ -18,14 +18,14 @@ describe('mock-transport', function() {
     var transporter = nodemailer.createTransport(transport);
 
     transporter.sendMail({
-      from: 'sender@address',
-      to: 'receiver@address',
+      from: 'sender@address.com',
+      to: 'receiver@address.com',
       subject: 'hello',
       text: 'hello world!'
     });
 
     transport.sentMail.length.should.equal(1);
-    transport.sentMail[0].data.to.should.equal('receiver@address');
+    transport.sentMail[0].data.to.should.equal('receiver@address.com');
     transport.sentMail[0].message.content.should.equal('hello world!');
   });
 
@@ -37,7 +37,24 @@ describe('mock-transport', function() {
     var transporter = nodemailer.createTransport(transport);
 
     transporter.sendMail({
-      from: 'sender@address',
+      from: 'sender@address.com',
+      subject: 'hello',
+      text: 'hello world!'
+    });
+
+    transport.sentMail.length.should.equal(0);
+  });
+
+  it('should return an error and not send an email if the `to` email address is invalid', function () {
+    var transport = mockTransport({
+      foo: 'bar'
+    });
+
+    var transporter = nodemailer.createTransport(transport);
+
+    transporter.sendMail({
+      to: 'lolbad@email',
+      from: 'sender@address.com',
       subject: 'hello',
       text: 'hello world!'
     });
