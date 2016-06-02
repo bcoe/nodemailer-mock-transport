@@ -61,4 +61,37 @@ describe('mock-transport', function() {
 
     transport.sentMail.length.should.equal(0);
   });
+
+  it('should allow "to" to be an array of addresses', function(){
+    var transport = mockTransport({
+      foo: 'bar'
+    });
+    var transporter = nodemailer.createTransport(transport);
+    var to = ['receiver@address.com','receiver2@address.com']; 
+    transporter.sendMail({
+      from: 'sender@address.com',
+      to: to,
+      subject: 'hello',
+      text: 'hello world!'
+    });
+    transport.sentMail.length.should.equal(1);
+    transport.sentMail[0].data.to.should.eql(to);
+    transport.sentMail[0].message.content.should.equal('hello world!');
+
+  });
+  it('should not send an email if "to" is array and element isn\'t valid', function(){
+    var transport = mockTransport({
+      foo: 'bar'
+    });
+    var transporter = nodemailer.createTransport(transport);
+    var to = ['receiver@address.com', 34]; 
+    transporter.sendMail({
+      from: 'sender@address.com',
+      to: to,
+      subject: 'hello',
+      text: 'hello world!'
+    });
+    transport.sentMail.length.should.equal(0);
+
+  });
 });
