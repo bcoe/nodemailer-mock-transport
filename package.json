@@ -1,6 +1,6 @@
 {
   "name": "nodemailer-mock-transport",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "mock-mailer for putting tests around services that use node-mailer",
   "main": "index.js",
   "scripts": {
