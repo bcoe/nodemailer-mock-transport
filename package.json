@@ -26,7 +26,7 @@
     "nodemailer": "^2.4.2",
     "nyc": "^8.3.0",
     "standard": "^7.1.1",
-    "standard-version": "^2.2.1"
+    "standard-version": "^3.0.0"
   },
   "dependencies": {
     "npm-user-validate": "^0.1.2"
