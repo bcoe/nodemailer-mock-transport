@@ -23,7 +23,7 @@
     "chai": "^3.5.0",
     "coveralls": "^2.11.2",
     "mocha": "^2.1.0",
-    "nodemailer": "^2.4.2",
+    "nodemailer": "^3.0.2",
     "nyc": "^8.3.0",
     "standard": "^7.1.1",
     "standard-version": "^3.0.0"
