@@ -29,6 +29,6 @@
     "standard-version": "^3.0.0"
   },
   "dependencies": {
-    "npm-user-validate": "^0.1.2"
+    "npm-user-validate": "^1.0.0"
   }
 }
