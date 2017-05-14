@@ -22,7 +22,7 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "coveralls": "^2.11.2",
-    "mocha": "^2.1.0",
+    "mocha": "^3.4.0",
     "nodemailer": "^2.4.2",
     "nyc": "^8.3.0",
     "standard": "^7.1.1",
